@@ -1,0 +1,43 @@
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row" ng-controller="mealsCtrl">
+      <div ng-repeat="meal in meals">
+        <div class="col-md-4">
+          <div class="panel panel-success">
+
+            <div class="panel-heading">
+              <div class="text_center">
+                <h3 class="panel-title">{{meal.name}}</h3>
+              </div>
+            </div>
+
+            <div class="panel-body">
+              <div class="col-md-6">
+                <div class="text_center">
+                <b>PRICE: </b>{{meal.cost | currency}}
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="text_center">
+                <div class="link_color">
+                  
+                  <div ng-hide="checkActive(meal)==0">
+                  <button class="btn btn-info btn-xs"><a href="/#/orders" ng-click="addMeals(meal)">Order <em class="fa fa-plus-circle"></em></a></button>
+                  </div>
+
+                  <div ng-show="checkActive(meal)==0">
+                    <span class="label label-danger"><b>SOLD</b></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
