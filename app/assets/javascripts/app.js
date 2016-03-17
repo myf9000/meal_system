@@ -24,6 +24,16 @@ angular.module('mocs', ['ui.router', 'templates', 'ngResource'])
 				    return meals.getAll();
 				  }]
 				}
+			})
+			.state('ideas', {
+			  url: '/ideas',
+			  templateUrl: 'ideas/_ideas.html',
+			  controller: 'ideasCtrl',
+			  resolve: {
+				  ideaPromise: ['ideals', function(ideals){
+				    return ideals.getAll();
+				  }]
+				}
 			});
 
 	    $urlRouterProvider.otherwise('meals');
@@ -37,6 +47,18 @@ angular.module('mocs', ['ui.router', 'templates', 'ngResource'])
 	    },
 	    getOrder: function() {
         	return mealToOrder.meal;
+    	}
+	};
+})
+.factory('myIdea', function() {
+	var myIdea = {};
+
+	return {
+	    setIdea: function(idea) {
+	      return myIdea.idea = idea;
+	    },
+	    getIdea: function() {
+        	return myIdea.idea;
     	}
 	};
 })
