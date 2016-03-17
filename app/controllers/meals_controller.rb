@@ -10,6 +10,8 @@ class MealsController < ApplicationController
   	render json: {status: :ok}
   end
 
+
+
   def unsold
   	meal.update_attributes(active: true)
   	render json: {status: :ok}
