@@ -3,12 +3,8 @@ class IdeasController < ApplicationController
     respond_with Idea.all
   end
 
-  def new
-    respond_with Idea.new
-  end
-
   def create
-    idea = idea.create!(idea_params.merge(user: current_user))
+    idea = Idea.create!(idea_params.merge(user: current_user))
     respond_with idea
   end
 

@@ -30,8 +30,18 @@ angular.module('mocs', ['ui.router', 'templates', 'ngResource'])
 			  templateUrl: 'ideas/_ideas.html',
 			  controller: 'ideasCtrl',
 			  resolve: {
-				  ideaPromise: ['ideals', function(ideals){
-				    return ideals.getAll();
+				  ideaPromise: ['ideas', function(ideas){
+				    return ideas.getAll();
+				  }]
+				}
+			})
+			.state('show', {
+			  url: '/ideas/{id}',
+			  templateUrl: 'ideas/_show.html',
+			  controller: 'showCtrl',
+			  resolve: {
+				  idea: ['$stateParams', 'ideas', function($stateParams, ideas) {
+				    return ideas.get($stateParams.id);
 				  }]
 				}
 			});

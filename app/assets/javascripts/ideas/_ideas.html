@@ -1,0 +1,42 @@
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row" ng-controller="ideasCtrl">
+
+      <div ng-repeat="idea in ideas">
+        <div class="col-md-12">
+          <div class="panel panel-success">
+
+            <div class="panel-heading">
+              <div class="text_center">
+                <h3 class="panel-title">{{idea.name}}</h3>
+              </div>
+            </div>
+
+            <div class="panel-body">
+                <div class="text_center">
+                  <h4> {{idea.desc}} </h4>
+                  <a href="#/ideas/{{idea.id}}">Look!</a>
+                </div>
+          </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="col-md-12">
+          <form ng-submit="addIdea()">
+            <h3>Add a new idea</h3>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Name" ng-model="name"></input>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Desc" ng-model="desc"></input>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+        </div>
+
+    </div>
+  </div>
+</div>
+

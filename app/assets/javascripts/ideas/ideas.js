@@ -18,5 +18,11 @@ angular.module('mocs')
     });
   };
 
+  o.get = function(id) {
+    return $http.get('/ideas/' + id + '.json').then(function(res){
+      return res.data;
+    });
+  };
+
   return o;
 }]);

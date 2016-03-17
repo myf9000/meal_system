@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  get 'ideas/index'
-
-  get 'ideas/new'
-
-  get 'ideas/create'
-
-  get 'ideas/show'
-
   root to: 'pages#angular'
 
   get 'sessions/create'
@@ -26,5 +18,5 @@ Rails.application.routes.draw do
 	  end
 	end
 
-  resources :ideas, only: [:index, :show, :new, :create], defaults: {format: :json}
+  resources :ideas, only: [:index, :show, :create], defaults: {format: :json}
 end
