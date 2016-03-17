@@ -8,6 +8,7 @@ class CreateIdeas < ActiveRecord::Migration
       t.timestamps null: false
     end
   end
+
 end
 
 
